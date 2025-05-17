@@ -1,3 +1,6 @@
+/**
+ * Example extracted from https://testsmells.org/pages/testsmellexamples.html
+ */ 
 class IgnoredTest {
     @Ignore("disabled for now as this test is too flaky")
     public void peerPriority() throws Exception {
