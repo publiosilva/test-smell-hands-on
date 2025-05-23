@@ -1,5 +1,21 @@
 /**
  * Example extracted from https://testsmells.org/pages/testsmellexamples.html
+ * 
+ * SMELL: Teste Ansioso (Eager Test)
+ * 
+ * ONDE ESTÁ O SMELL: O teste verifica múltiplos comportamentos diferentes em um único
+ * método de teste (getLatestPdop, getLatestHdop, getLatestVdop). Isso viola o princípio
+ * de que cada teste deve verificar apenas um comportamento específico.
+ * 
+ * COMO REMOVER:
+ * 1. Separar cada verificação em um método de teste individual
+ * 2. Dar nomes descritivos para cada teste que indiquem exatamente o que está sendo testado
+ * 3. Manter a configuração comum em um método @Before se necessário
+ * 
+ * Exemplo de correção:
+ * - Criar testGetLatestPdop()
+ * - Criar testGetLatestHdop()
+ * - Criar testGetLatestVdop()
  */
 class NmeaSentenceTest {
     @Test

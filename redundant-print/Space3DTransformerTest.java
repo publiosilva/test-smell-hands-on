@@ -1,5 +1,21 @@
 /**
  * Example extracted from https://testsmells.org/pages/testsmellexamples.html
+ * 
+ * SMELL: Impressão Redundante (Redundant Print)
+ * 
+ * ONDE ESTÁ O SMELL: O teste contém uma instrução System.out.println() que imprime
+ * o resultado intermediário do teste. Esta impressão não contribui para a validação
+ * do teste e pode poluir a saída do console durante a execução dos testes.
+ * 
+ * COMO REMOVER:
+ * 1. Remover todas as instruções de impressão do código de teste
+ * 2. Usar asserções apropriadas para validar os resultados
+ * 3. Se necessário, usar logs de debug configuráveis
+ * 
+ * Exemplo de correção:
+ * - Remover a linha System.out.println("result = " + result)
+ * - Adicionar asserções específicas para validar o resultado intermediário
+ * - Usar um logger configurável se for necessário debug
  */ 
 class Space3DTransformerTest {
     @Test

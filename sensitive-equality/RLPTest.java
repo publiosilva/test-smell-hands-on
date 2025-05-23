@@ -1,5 +1,22 @@
 /**
  * Example extracted from https://testsmells.org/pages/testsmellexamples.html
+ * 
+ * SMELL: Igualdade Sensível (Sensitive Equality)
+ * 
+ * ONDE ESTÁ O SMELL: O teste compara a representação em string do endereço IP
+ * usando assertEquals, o que pode ser sensível a mudanças na formatação ou na
+ * representação do endereço. Isso pode causar falhas nos testes mesmo quando
+ * o comportamento real do sistema está correto.
+ * 
+ * COMO REMOVER:
+ * 1. Comparar os bytes do endereço IP diretamente em vez de usar a representação em string
+ * 2. Usar asserções específicas para endereços IP, como verificar cada octeto individualmente
+ * 3. Evitar comparações de strings para dados binários ou endereços de rede
+ * 
+ * Exemplo de correção:
+ * - Comparar os bytes do endereço IP diretamente
+ * - Usar asserções específicas para verificar cada octeto do endereço IP
+ * - Evitar comparações de strings para dados binários
  */
 class RLPTest {
     @Test

@@ -1,5 +1,22 @@
 /**
  * Example extracted from https://testsmells.org/pages/testsmellexamples.html
+ * 
+ * SMELL: Tratamento de Exceção (Exception Handling)
+ * 
+ * ONDE ESTÁ O SMELL: O teste captura uma exceção (CalculationException) e falha
+ * o teste com a mensagem da exceção, mas não verifica se a exceção é a esperada
+ * ou se o comportamento do sistema está correto. Isso pode mascarar problemas
+ * reais no código.
+ * 
+ * COMO REMOVER:
+ * 1. Verificar se a exceção é a esperada e se a mensagem é a correta
+ * 2. Usar asserções específicas para verificar o comportamento do sistema
+ * 3. Garantir que o teste falhe de forma clara e informativa
+ * 
+ * Exemplo de correção:
+ * - Verificar se a exceção é do tipo esperado
+ * - Adicionar asserções para verificar a mensagem da exceção
+ * - Garantir que o teste falhe de forma clara e informativa
  */
 class AbrissTest {
     @Test

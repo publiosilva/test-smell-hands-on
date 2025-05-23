@@ -1,5 +1,22 @@
 /**
  * Example extracted from https://testsmells.org/pages/testsmellexamples.html
+ * 
+ * SMELL: Teste Sonolento (Sleepy Test)
+ * 
+ * ONDE ESTÁ O SMELL: O teste usa Thread.sleep(500) para esperar por uma operação
+ * assíncrona completar. Este tipo de espera fixa é frágil, pois o tempo real
+ * necessário pode variar dependendo da carga do sistema, tornando os testes
+ * instáveis e lentos.
+ * 
+ * COMO REMOVER:
+ * 1. Usar mecanismos de espera explícitos (ex: waitForCondition)
+ * 2. Implementar callbacks ou listeners para operações assíncronas
+ * 3. Usar bibliotecas de teste que suportam espera inteligente
+ * 
+ * Exemplo de correção:
+ * - Implementar um mecanismo de callback para notificar quando a busca estiver completa
+ * - Usar waitForCondition para esperar até que o resultado esteja disponível
+ * - Adicionar timeouts configuráveis para evitar esperas infinitas
  */
 class ResultActivityTest {
     public void testEdictExternSearch() throws Exception {
