@@ -3,20 +3,19 @@
  * 
  * SMELL: Teste Preguiçoso (Lazy Test)
  * 
- * ONDE ESTÁ O SMELL: O teste não verifica adequadamente o comportamento do sistema,
- * especialmente no método testDecrypt, onde a leitura do arquivo e a comparação
- * são feitas de forma simplificada, sem garantir que o resultado seja o esperado.
- * Isso pode levar a testes que não validam corretamente o comportamento do sistema.
+ * ONDE ESTÁ O SMELL: Os métodos testDecrypt e testEncrypt estão testando o mesmo comportamento
+ * do sistema de forma redundante. Ambos os testes verificam a funcionalidade de criptografia,
+ * mas de maneiras diferentes, o que pode levar a manutenção desnecessária e duplicação de código.
  * 
  * COMO REMOVER:
- * 1. Adicionar asserções que validem o comportamento esperado do sistema
- * 2. Garantir que o teste verifique o resultado de forma adequada
- * 3. Usar dados de teste que cubram diferentes cenários
+ * 1. Unificar os testes em um único método parametrizado
+ * 2. Usar @ParameterizedTest do JUnit 5 para testar diferentes cenários
+ * 3. Eliminar a duplicação de código nos testes
  * 
  * Exemplo de correção:
- * - Adicionar asserções para verificar o conteúdo do arquivo
- * - Garantir que o teste verifique o resultado de forma adequada
- * - Usar dados de teste que cubram diferentes cenários
+ * - Criar um único teste parametrizado que cubra todos os cenários
+ * - Usar @MethodSource para fornecer diferentes dados de teste
+ * - Manter a cobertura de testes enquanto reduz a duplicação
  */
 class CryptographerTest {
     @Test
