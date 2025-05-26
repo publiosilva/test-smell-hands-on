@@ -18,7 +18,7 @@
  * - Adicionar mensagens como "O arquivo README deve ter o tamanho correto"
  */
 public class GitAsyncTaskTest {
-    @MediumTest
+    @Test
     public void testCloneNonBareRepoFromLocalTestServer() throws Exception {
         Clone cloneOp = new Clone(false, integrationGitServerURIFor("small-repo.early.git"), helper().newFolder());
 
